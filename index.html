@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLOW MATCHA — 콘텐츠 전략 & 비주얼 레퍼런스</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;700&display=swap');
+  :root{--matcha:#5B7B5E;--ml:#8FA88F;--md:#3D5A3F;--bg:#F5F0E8;--wb:#EDE6D8;--cr:#FAF8F4;--st:#D4CFC6;--gd:#B8975A;--dk:#1B1B1B;--mid:#555;--lt:#999}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans','Noto Sans KR',sans-serif;background:var(--cr);color:var(--dk);line-height:1.6}
+  .page{max-width:960px;margin:0 auto;padding:60px 40px}
+  .cover{background:var(--dk);color:#fff;text-align:center;padding:80px 40px 60px}
+  .cover .label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gd);margin-bottom:16px}
+  .cover h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:400;letter-spacing:3px;margin-bottom:8px}
+  .cover .sub{font-size:15px;color:var(--st);font-weight:300}
+  .cover .sub2{font-size:12px;color:#666;margin-top:8px;font-style:italic}
+  .sn{font-family:'Playfair Display',serif;font-size:52px;color:var(--ml);opacity:.3;margin-bottom:-8px}
+  .st{font-size:26px;font-weight:900;margin-bottom:6px}
+  .ss{font-size:13px;color:var(--mid);margin-bottom:36px;font-weight:300}
+  h3{font-size:17px;font-weight:700;margin:32px 0 16px}
+  .palette{display:flex;gap:12px;margin:20px 0}
+  .sw-i{text-align:center;flex:1}
+  .sw-i .sw{height:60px;border-radius:10px;margin-bottom:6px}
+  .sw-i .sn2{font-size:10px;font-weight:600}
+  .sw-i .sh{font-size:9px;color:var(--lt);font-family:monospace}
+  .note{background:var(--bg);border-left:4px solid var(--gd);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:13px;color:var(--mid);line-height:1.7}
+  .note strong{color:var(--dk)}
+  .note.green{background:#E8F0E8;border-left-color:var(--matcha)}
+  .rg{display:grid;gap:12px;margin:20px 0}
+  .rg.c2{grid-template-columns:1fr 1fr}
+  .rg.c3{grid-template-columns:1fr 1fr 1fr}
+  .rg.ft{grid-template-columns:2fr 1fr}
+  .ri{border-radius:12px;overflow:hidden;position:relative;background:#e8e5e0}
+  .ri img{width:100%;height:100%;object-fit:cover;display:block}
+  .ri .ov{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff}
+  .ri .ov .ts{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gd);margin-bottom:2px}
+  .ri .ov .ds{font-size:11px;font-weight:300;line-height:1.4}
+  .pr{display:grid;grid-template-columns:200px 1fr;gap:0;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid #e0dcd5;background:#fff}
+  .pr .pi{position:relative;overflow:hidden}
+  .pr .pi img{width:100%;height:100%;object-fit:cover}
+  .pr .pi .pn{position:absolute;top:10px;left:10px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+  .pr .pf{padding:20px 24px}
+  .pr .pf h4{font-size:15px;margin-bottom:4px}
+  .pr .pf .rt{font-size:12px;color:var(--gd);font-weight:700;margin-bottom:8px}
+  .pr .pf p{font-size:12px;color:var(--mid);line-height:1.6}
+  .pr .pf .ex{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+  .pr .pf .ex span{font-size:10px;padding:3px 10px;border-radius:20px;background:var(--bg);color:var(--mid)}
+  .cs{background:#fff;border-radius:16px;padding:28px;margin:24px 0;border:1px solid #e0dcd5}
+  .cs .ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .cs .ch h4{font-size:16px}
+  .cs .ch .tg{font-size:10px;padding:4px 12px;border-radius:20px;font-weight:600}
+  .sr{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+  .sr::-webkit-scrollbar{height:4px}
+  .sr::-webkit-scrollbar-thumb{background:var(--st);border-radius:4px}
+  .sc{min-width:180px;max-width:180px;border-radius:12px;overflow:hidden;flex-shrink:0;scroll-snap-align:start;border:1px solid #e8e5e0;background:#fff}
+  .sc .sv{height:180px;position:relative;overflow:hidden}
+  .sc .sv img{width:100%;height:100%;object-fit:cover}
+  .sc .sv .nm{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .sc .sv.cf{display:flex;align-items:center;justify-content:center;text-align:center;padding:16px}
+  .sc .sp{padding:12px 14px}
+  .sc .sp .ct{font-size:11px;font-weight:700;margin-bottom:2px}
+  .sc .sp .cd{font-size:10px;color:var(--mid);line-height:1.4}
+  .fm{background:#fff;border-radius:20px;padding:20px;border:1px solid #e0dcd5;margin:24px 0}
+  .fp{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid #f0ede8;margin-bottom:16px}
+  .fa{width:44px;height:44px;border-radius:50%;background:var(--matcha);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px}
+  .fn{font-weight:700;font-size:13px}
+  .fb{font-size:11px;color:var(--mid)}
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .gc{aspect-ratio:1;border-radius:4px;overflow:hidden;position:relative}
+  .gc img{width:100%;height:100%;object-fit:cover}
+  .gc .go{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px}
+  .gc .go .gn{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:2px}
+  .gc .go .gt{font-size:10px;font-weight:700;line-height:1.3}
+  .gc .go .gy{font-size:8px;margin-top:3px;opacity:.7}
+  .rl{grid-column:span 3;text-align:center;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--matcha);padding:8px 0 2px}
+  .pd{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .pc{border-radius:12px;overflow:hidden;background:#fff;border:1px solid #e0dcd5}
+  .pc .pv{height:180px;overflow:hidden;position:relative}
+  .pc .pv img{width:100%;height:100%;object-fit:cover}
+  .pc .pv .stag{position:absolute;top:10px;left:10px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:rgba(0,0,0,.5);color:#fff;backdrop-filter:blur(4px)}
+  .pc .pp{padding:14px 16px}
+  .pc .pp h5{font-size:13px;margin-bottom:4px}
+  .pc .pp p{font-size:11px;color:var(--mid);line-height:1.5}
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .do{background:#E8F0E8;border-radius:12px;padding:20px;border:1px solid #C8D8C8}
+  .dn{background:#F5E8E8;border-radius:12px;padding:20px;border:1px solid #DCC8C8}
+  .do h4,.dn h4{font-size:14px;margin-bottom:12px}
+  .cl{list-style:none;font-size:12px;line-height:2.2}
+  .ce{background:#fff;border-radius:12px;padding:20px 24px;margin:12px 0;border:1px solid #e0dcd5;border-left:4px solid var(--matcha)}
+  .ce .cy{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--matcha);font-weight:600;margin-bottom:8px}
+  .ce .cx{font-size:15px;line-height:1.8;font-weight:300}
+  .ce .cg{font-size:11px;color:var(--ml);margin-top:10px}
+  .ft{text-align:center;padding:40px;font-size:12px;color:var(--lt);border-top:1px solid var(--st);margin-top:40px}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="label">GLOWSEOUL · Content Strategy & Visual Reference</div>
+  <h1>SLOW MATCHA</h1>
+  <div class="sub">콘텐츠 전략 & 비주얼 레퍼런스 가이드 — WE Hotel 2F</div>
+  <div class="sub2">WE호텔 리브랜딩 제안서(2025.12.26) 및 1차 미팅 결과 반영</div>
+</div>
+
+<!-- 01 COLOR & MOOD -->
+<div class="page">
+  <div class="sn">01</div>
+  <div class="st">컬러 팔레트 & 비주얼 무드</div>
+  <div class="ss">SLOW MATCHA의 비주얼 세계관을 구성하는 핵심 시스템</div>
+  <div class="palette">
+    <div class="sw-i"><div class="sw" style="background:#5B7B5E"></div><div class="sn2">Deep Matcha</div><div class="sh">#5B7B5E</div></div>
+    <div class="sw-i"><div class="sw" style="background:#8FA88F"></div><div class="sn2">Soft Matcha</div><div class="sh">#8FA88F</div></div>
+    <div class="sw-i"><div class="sw" style="background:#F5F0E8"></div><div class="sn2">Warm Beige</div><div class="sh">#F5F0E8</div></div>
+    <div class="sw-i"><div class="sw" style="background:#EDE6D8"></div><div class="sn2">Sand</div><div class="sh">#EDE6D8</div></div>
+    <div class="sw-i"><div class="sw" style="background:#FAF8F4"></div><div class="sn2">Cream</div><div class="sh">#FAF8F4</div></div>
+    <div class="sw-i"><div class="sw" style="background:#B8975A"></div><div class="sn2">Champagne Gold</div><div class="sh">#B8975A</div></div>
+  </div>
+
+  <h3>공간 무드 레퍼런스</h3>
+  <div class="rg ft">
+    <div class="ri" style="height:320px">
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/18f3fa95802557.5e9f20b7773e0.jpg" alt="">
+      <div class="ov"><div class="ts">공간 와이드샷 레퍼런스</div><div class="ds">미니멀한 공간감 + 자연 소재(원목/석재) + 녹색 톤 포인트. 여백을 살린 인테리어.</div></div>
+    </div>
+    <div style="display:grid;gap:12px">
+      <div class="ri" style="height:154px"><img src="https://i.pinimg.com/736x/68/6c/e6/686ce65b48e2bcabb20ae3e16b21a10f.jpg" alt=""><div class="ov"><div class="ts">디테일 컷</div><div class="ds">세라믹/원목/린넨 텍스처 클로즈업</div></div></div>
+      <div class="ri" style="height:154px"><img src="https://i.pinimg.com/736x/e4/c0/15/e4c015fba45b3f1eaf3315e6bce8cd1a.jpg" alt=""><div class="ov"><div class="ts">제주 로컬 감성</div><div class="ds">현무암 + 자연소재 조합의 제주 카페 무드</div></div></div>
+    </div>
+  </div>
+
+  <h3>메뉴 포토그래피 레퍼런스</h3>
+  <div class="rg c3">
+    <div class="ri" style="height:240px"><img src="https://i.pinimg.com/736x/f7/0b/28/f70b2876ddbb3f6e31e9d3e37e1ea70b.jpg" alt=""><div class="ov"><div class="ts">타르트 단면 컷</div><div class="ds">자연광 + 크리미한 질감 강조</div></div></div>
+    <div class="ri" style="height:240px"><img src="https://i.pinimg.com/736x/a3/85/9e/a3859e8c8d4cce7b1e12d47d9f6cc4ce.jpg" alt=""><div class="ov"><div class="ts">디저트 플레이팅</div><div class="ds">미니멀 배경 + 세라믹 접시 + 소프트 톤</div></div></div>
+    <div class="ri" style="height:240px"><img src="https://i.pinimg.com/originals/1f/d8/38/1fd838ca8f6cddc3e0b8b6a5a42ee47a.jpg" alt=""><div class="ov"><div class="ts">음료 컷</div><div class="ds">세라믹 컵 + 말차 그라데이션 컬러감</div></div></div>
+  </div>
+  <div class="note"><strong>포토그래피 원칙:</strong> 자연광 시간대(10:00~14:00) 촬영 필수. 역광 비침으로 부드러운 그림자 연출. 배경 정리 후 미니멀 세팅. 세라믹/린넨/원목 소품만 사용. 여백 60% + 피사체 40% 구도 원칙.</div>
+</div>
+
+<!-- 02 CONTENT PILLAR -->
+<div class="page">
+  <div class="sn">02</div>
+  <div class="st">콘텐츠 필라 (Pillar) & 비주얼 디렉션</div>
+  <div class="ss">4개 필라별 콘텐츠 유형과 레퍼런스 이미지</div>
+
+  <div class="pr"><div class="pi"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/18f3fa95802557.5e9f20b7773e0.jpg" alt=""><div class="pn">1</div></div><div class="pf"><h4>공간 경험</h4><div class="rt">비율 30%</div><p>공간의 분위기와 디테일을 전달하는 비주얼 콘텐츠. 와이드샷으로 전체 공간감, 디테일 컷으로 소재의 질감 전달.</p><div class="ex"><span>인테리어 와이드샷</span><span>천장/조명 디테일</span><span>소품 클로즈업</span><span>창문 빛 연출</span></div></div></div>
+
+  <div class="pr"><div class="pi"><img src="https://i.pinimg.com/736x/f7/0b/28/f70b2876ddbb3f6e31e9d3e37e1ea70b.jpg" alt=""><div class="pn">2</div></div><div class="pf"><h4>메뉴 스토리</h4><div class="rt">비율 35% — 가장 높은 비중</div><p>메뉴의 과정, 재료, 특별한 경험을 보여주는 콘텐츠. 타르트 베이킹 과정, 앰플 커스텀 과정, 말차 우리는 장면 등 '만드는 과정' 중심.</p><div class="ex"><span>타르트 베이킹 과정</span><span>앰플 커스텀</span><span>단면 클로즈업</span><span>말차 우리는 장면</span></div></div></div>
+
+  <div class="pr"><div class="pi"><img src="https://i.pinimg.com/originals/1f/d8/38/1fd838ca8f6cddc3e0b8b6a5a42ee47a.jpg" alt=""><div class="pn">3</div></div><div class="pf"><h4>웰니스 연결</h4><div class="rt">비율 20%</div><p>WE호텔 웰니스 철학과 연결되는 스토리텔링. 화산암반수 스토리, 호텔 공간과의 연결, 제주 자연 연계.</p><div class="ex"><span>화산암반수 스토리</span><span>호텔 공간 연계</span><span>제주 자연 연결</span></div></div></div>
+
+  <div class="pr"><div class="pi"><img src="https://i.pinimg.com/736x/a3/85/9e/a3859e8c8d4cce7b1e12d47d9f6cc4ce.jpg" alt=""><div class="pn">4</div></div><div class="pf"><h4>시즌 / 이벤트</h4><div class="rt">비율 15%</div><p>시즌 한정 메뉴, 패키지, 프로모션 콘텐츠. 벚꽃 시즌 패키지, 여름 빙수 한정, 연말 기프트세트 등.</p><div class="ex"><span>벚꽃 시즌 패키지</span><span>여름 빙수 한정</span><span>연말 기프트세트</span></div></div></div>
+
+  <div class="note green"><strong>필라 순환 원칙:</strong> 피드에 같은 필라가 연속 3개 이상 올라가지 않도록 순환 배치. 공간(베이지) → 메뉴(그린) → 웰니스(베이지/그린) → 시즌(포인트)으로 컬러 톤도 자연스럽게 전환.</div>
+</div>
+
+<!-- 03 FEED GRID -->
+<div class="page">
+  <div class="sn">03</div>
+  <div class="st">인스타그램 피드 그리드 시안</div>
+  <div class="ss">3×3 그리드로 구성하는 브랜드 무드보드 — 프로필 방문 시 첫인상 설계</div>
+  <div class="fm">
+    <div class="fp"><div class="fa">S</div><div><div class="fn">slow_matcha_jeju</div><div class="fb">천천히, 한 모금의 시간. | WE Hotel 2F | 매일 09:00–18:00</div></div></div>
+    <div class="g3">
+      <div class="rl">Row 1 — 브랜드 소개 (베이지 톤)</div>
+      <div class="gc"><img src="https://i.pinimg.com/736x/1a/c9/c5/1ac9c5fd8a2c114b53b97d2607e18c5c.jpg" alt=""><div class="go" style="background:rgba(245,240,232,.75);color:var(--dk)"><div class="gn">1</div><div class="gt">브랜드 인트로</div><div class="gy">캐러셀 4~5장</div></div></div>
+      <div class="gc"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/18f3fa95802557.5e9f20b7773e0.jpg" alt=""><div class="go" style="background:rgba(180,175,165,.6);color:#fff"><div class="gn">2</div><div class="gt">공간 전경</div><div class="gy">싱글 이미지</div></div></div>
+      <div class="gc"><img src="https://i.pinimg.com/736x/68/6c/e6/686ce65b48e2bcabb20ae3e16b21a10f.jpg" alt=""><div class="go" style="background:rgba(245,240,232,.75);color:var(--dk)"><div class="gn">3</div><div class="gt">공간 디테일</div><div class="gy">캐러셀 3~4장</div></div></div>
+      <div class="rl">Row 2 — 메뉴 소개 (말차 그린 톤)</div>
+      <div class="gc"><img src="https://i.pinimg.com/736x/a3/85/9e/a3859e8c8d4cce7b1e12d47d9f6cc4ce.jpg" alt=""><div class="go" style="background:rgba(91,123,94,.65);color:#fff"><div class="gn">4</div><div class="gt">시그니처 메뉴</div><div class="gy">캐러셀 5~6장</div></div></div>
+      <div class="gc"><img src="https://i.pinimg.com/736x/f7/0b/28/f70b2876ddbb3f6e31e9d3e37e1ea70b.jpg" alt=""><div class="go" style="background:rgba(91,123,94,.55);color:#fff"><div class="gn">5</div><div class="gt">말차 타르트 ★</div><div class="gy">핵심 바이럴</div></div></div>
+      <div class="gc"><img src="https://i.pinimg.com/originals/1f/d8/38/1fd838ca8f6cddc3e0b8b6a5a42ee47a.jpg" alt=""><div class="go" style="background:rgba(91,123,94,.65);color:#fff"><div class="gn">6</div><div class="gt">웰니스 드링크</div><div class="gy">캐러셀 4장</div></div></div>
+      <div class="rl">Row 3 — 경험 & 정보 (베이지+그린 믹스)</div>
+      <div class="gc"><img src="https://media-cdn.tripadvisor.com/media/photo-s/1a/b4/e3/5a/caption.jpg" alt=""><div class="go" style="background:rgba(237,230,216,.75);color:var(--dk)"><div class="gn">7</div><div class="gt">애프터눈티</div><div class="gy">캐러셀 4장</div></div></div>
+      <div class="gc"><img src="https://i.pinimg.com/736x/e4/c0/15/e4c015fba45b3f1eaf3315e6bce8cd1a.jpg" alt=""><div class="go" style="background:rgba(200,196,188,.7);color:var(--dk)"><div class="gn">8</div><div class="gt">오시는 길</div><div class="gy">캐러셀 3장</div></div></div>
+      <div class="gc"><img src="https://i.pinimg.com/736x/c8/60/a0/c860a04b7e8b2fc4d15fd96a0e7f1d3e.jpg" alt=""><div class="go" style="background:rgba(143,168,143,.6);color:#fff"><div class="gn">9</div><div class="gt">시즌 콘텐츠</div><div class="gy">싱글 이미지</div></div></div>
+    </div>
+  </div>
+  <div class="note"><strong>그리드 핵심:</strong> Row 1(베이지) → Row 2(말차 그린) → Row 3(믹스)로 톤이 자연스럽게 전환. 9개 피드가 하나의 무드보드를 형성하며, 프로필 방문 시 브랜드 세계관이 즉시 전달되는 구조.</div>
+</div>
+
+<!-- 04 CAROUSEL DETAIL -->
+<div class="page">
+  <div class="sn">04</div>
+  <div class="st">캐러셀 콘텐츠 시안 — 슬라이드별 구성</div>
+  <div class="ss">핵심 캐러셀 3종의 상세 구성과 비주얼 레퍼런스</div>
+
+  <div class="cs"><div class="ch"><h4>#1 브랜드 인트로</h4><span class="tg" style="background:var(--bg);color:var(--gd)">캐러셀 4~5장</span></div>
+    <div class="sr">
+      <div class="sc"><div class="sv cf" style="background:var(--dk);color:#fff"><div class="nm">1</div><div style="font-family:'Playfair Display',serif;font-size:18px;line-height:1.4">천천히,<br>한 모금의<br>시간.</div><div style="font-size:9px;margin-top:8px;color:var(--gd);letter-spacing:2px">SLOW MATCHA</div></div><div class="sp"><div class="ct">타이틀 슬라이드</div><div class="cd">브랜드명 + 핵심 카피. 다크 배경 세리프 타이포.</div></div></div>
+      <div class="sc"><div class="sv"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/18f3fa95802557.5e9f20b7773e0.jpg" alt=""><div class="nm">2</div></div><div class="sp"><div class="ct">공간 전경 + 철학</div><div class="cd">WE호텔 웰니스 철학 연결. 공간 와이드샷 위 텍스트.</div></div></div>
+      <div class="sc"><div class="sv cf" style="background:linear-gradient(135deg,var(--ml),var(--matcha));color:#fff"><div class="nm">3</div><div style="font-size:14px;font-weight:300;line-height:1.6">"회복하는<br>말차 공간"</div><div style="font-size:9px;margin-top:8px;opacity:.7">WE Hotel 2F</div></div><div class="sp"><div class="ct">컨셉 키워드</div><div class="cd">말차 그린 배경 포지셔닝 문장.</div></div></div>
+      <div class="sc"><div class="sv"><img src="https://i.pinimg.com/736x/68/6c/e6/686ce65b48e2bcabb20ae3e16b21a10f.jpg" alt=""><div class="nm">4</div></div><div class="sp"><div class="ct">공간 디테일</div><div class="cd">소재 질감 디테일 컷. 린넨/세라믹/원목.</div></div></div>
+      <div class="sc"><div class="sv cf" style="background:var(--bg)"><div class="nm">5</div><div style="font-size:12px;line-height:1.6">📍 WE Hotel 2F<br><br><span style="font-size:11px;color:var(--mid)">매일 09:00–18:00<br>L.O 17:30</span></div></div><div class="sp"><div class="ct">위치 + 운영정보</div><div class="cd">베이지 배경 심플 정보.</div></div></div>
+    </div>
+  </div>
+
+  <div class="cs"><div class="ch"><h4>#4 시그니처 메뉴 가이드</h4><span class="tg" style="background:#E8F0E8;color:var(--matcha)">캐러셀 5~6장</span></div>
+    <div class="sr">
+      <div class="sc"><div class="sv cf" style="background:var(--matcha);color:#fff"><div class="nm">1</div><div style="font-family:'Playfair Display',serif;font-size:16px">SLOW MATCHA<br>Menu Guide</div></div><div class="sp"><div class="ct">타이틀</div><div class="cd">말차 그린 배경 심플 타이포.</div></div></div>
+      <div class="sc"><div class="sv"><img src="https://i.pinimg.com/originals/1f/d8/38/1fd838ca8f6cddc3e0b8b6a5a42ee47a.jpg" alt=""><div class="nm">2</div></div><div class="sp"><div class="ct">웰니스 드링크</div><div class="cd">앰플 3종 비주얼. 세라믹 잔.</div></div></div>
+      <div class="sc"><div class="sv"><img src="https://i.pinimg.com/736x/a3/85/9e/a3859e8c8d4cce7b1e12d47d9f6cc4ce.jpg" alt=""><div class="nm">3</div></div><div class="sp"><div class="ct">말차 라떼 & 디저트</div><div class="cd">커스텀 선택 과정 소개.</div></div></div>
+      <div class="sc"><div class="sv"><img src="https://i.pinimg.com/736x/f7/0b/28/f70b2876ddbb3f6e31e9d3e37e1ea70b.jpg" alt=""><div class="nm">4</div></div><div class="sp"><div class="ct">시그니처 디저트</div><div class="cd">타르트 단면 + "매 30분 베이킹".</div></div></div>
+      <div class="sc"><div class="sv cf" style="background:var(--bg)"><div class="nm">5</div><div style="font-size:13px;line-height:1.6">Price Guide<br><span style="font-size:10px;color:var(--gd)">+ 캐치테이블 예약 →</span></div></div><div class="sp"><div class="ct">가격 + 예약 안내</div><div class="cd">캐치테이블 연결 CTA.</div></div></div>
+    </div>
+  </div>
+
+  <div class="cs"><div class="ch"><h4>#5 말차 타르트 ★ — 핵심 바이럴</h4><span class="tg" style="background:#FFF3E0;color:#E65100">바이럴 핵심</span></div>
+    <div class="sr">
+      <div class="sc"><div class="sv"><img src="https://i.pinimg.com/736x/f7/0b/28/f70b2876ddbb3f6e31e9d3e37e1ea70b.jpg" alt=""><div class="nm">1</div></div><div class="sp"><div class="ct">타르트 단면 클로즈업</div><div class="cd">크리미한 말차 필링 질감 + 자연광 역광. 가장 임팩트 있는 커버.</div></div></div>
+      <div class="sc"><div class="sv cf" style="background:var(--wb)"><div class="nm">2</div><div style="font-size:15px;font-weight:300;line-height:1.6;color:var(--dk)">매 30분,<br>오븐에서<br>바로.</div></div><div class="sp"><div class="ct">캡션 중심 슬라이드</div><div class="cd">"줄 서는 맛집" 바이럴 핵심 카피.</div></div></div>
+      <div class="sc"><div class="sv cf" style="background:linear-gradient(135deg,#8B7355,#6B5B4A);color:#fff"><div class="nm">3</div><div style="font-size:12px;line-height:1.5">베이킹 과정<br>릴스/슬라이드<br><span style="font-size:10px;opacity:.7">운영 콘텐츠 확장</span></div></div><div class="sp"><div class="ct">영상 콘텐츠 확장</div><div class="cd">오븐 장면, 커팅 과정 ASMR적 영상.</div></div></div>
+    </div>
+    <div class="note" style="margin-top:16px;margin-bottom:0"><strong>바이럴 전략:</strong> "매 30분 한정 베이킹" → 시간 제한 희소성 + 갓 구운 신선함 스토리. 단면 클로즈업이 저장/공유 유도하는 핵심 비주얼.</div>
+  </div>
+</div>
+
+<!-- 05 PHOTO DIRECTION -->
+<div class="page">
+  <div class="sn">05</div>
+  <div class="st">포토그래피 디렉션 & 촬영 가이드</div>
+  <div class="ss">촬영 시 참고할 컷별 스타일 가이드 — 레퍼런스 이미지 포함</div>
+  <div class="pd">
+    <div class="pc"><div class="pv"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/18f3fa95802557.5e9f20b7773e0.jpg" alt=""><div class="stag">Wide Shot</div></div><div class="pp"><h5>공간 와이드샷</h5><p>전체 인테리어가 보이는 와이드. 천장 린넨 레이어드 + 자연광. 여백 많은 구도. 사람 없이 공간만.</p></div></div>
+    <div class="pc"><div class="pv"><img src="https://i.pinimg.com/736x/68/6c/e6/686ce65b48e2bcabb20ae3e16b21a10f.jpg" alt=""><div class="stag">Detail</div></div><div class="pp"><h5>공간 디테일 컷</h5><p>천장, 조명, 소품, 메뉴판. 질감이 느껴지는 클로즈업. 린넨/세라믹/원목 텍스처 중심.</p></div></div>
+    <div class="pc"><div class="pv"><img src="https://i.pinimg.com/736x/f7/0b/28/f70b2876ddbb3f6e31e9d3e37e1ea70b.jpg" alt=""><div class="stag">Menu — Tart</div></div><div class="pp"><h5>타르트 클로즈업</h5><p>단면 컷 필수. 크리미한 말차 필링 질감 강조. 오븐에서 꺼내는 순간 or 갓 자른 단면.</p></div></div>
+    <div class="pc"><div class="pv"><img src="https://i.pinimg.com/originals/1f/d8/38/1fd838ca8f6cddc3e0b8b6a5a42ee47a.jpg" alt=""><div class="stag">Menu — Drink</div></div><div class="pp"><h5>웰니스 드링크 / 말차 라떼</h5><p>앰플 3종 비주얼 + 커스텀 과정. 그라데이션 컬러감이 보이는 앵글. 손 등장 가능.</p></div></div>
+    <div class="pc"><div class="pv"><img src="https://i.pinimg.com/736x/e4/c0/15/e4c015fba45b3f1eaf3315e6bce8cd1a.jpg" alt=""><div class="stag">Exterior</div></div><div class="pp"><h5>외관 / 제주 감성</h5><p>현무암 + 자연소재 조합. 맑은 날씨에만 촬영. 안개 낀 날은 분위기 컷으로 활용.</p></div></div>
+    <div class="pc"><div class="pv"><img src="https://media-cdn.tripadvisor.com/media/photo-s/1a/b4/e3/5a/caption.jpg" alt=""><div class="stag">Set / Package</div></div><div class="pp"><h5>애프터눈티 / 패키지</h5><p>세트 구성 전체를 담는 탑뷰 or 45도 앵글. 트레이 위 정돈된 배치. 호텔급 품격.</p></div></div>
+  </div>
+  <div class="note"><strong>촬영 조건:</strong><br>✅ 자연광 시간대 (10:00~14:00) 필수 | ✅ 세라믹/린넨/원목 소품만 | ✅ 핵심 메뉴 3개 플레이팅 컷 우선<br>⚠️ 제주 봄철 안개 리스크 | ⚠️ 공간 촬영은 공사 완료 후에만 가능</div>
+
+  <h3>비주얼 DO & DON'T</h3>
+  <div class="dd">
+    <div class="do"><h4>✅ DO — 이렇게</h4><ul class="cl"><li>✓ 여백이 느껴지는 구도와 컬러</li><li>✓ 자연광 소프트 톤 사진</li><li>✓ 단문 캡션 + 최소 텍스트</li><li>✓ 메뉴 과정/디테일 클로즈업</li><li>✓ 공간감을 전달하는 와이드 샷</li><li>✓ 조용한 공간음 (ASMR적 영상)</li><li>✓ 세라믹/린넨 소품 연출</li></ul></div>
+    <div class="dn"><h4>❌ DON'T — 이건 안 됨</h4><ul class="cl"><li>✗ 빨강/노란 등 과도한 채도</li><li>✗ 필터 과다/인공적 보정</li><li>✗ 해시태그 10개 이상 나열</li><li>✗ "대박 할인!" 프로모 콘텐츠</li><li>✗ 사람 얼굴 중심 셀피</li><li>✗ 빠른 컷 전환, 깜박임 영상</li><li>✗ 플라스틱 소품, 형광 배경</li></ul></div>
+  </div>
+
+  <h3>캡션 톤 예시</h3>
+  <div class="ce"><div class="cy">공간 콘텐츠</div><div class="cx">창 너머로 스며드는 빛.<br>린넨 사이로 내려앉는 고요함.<br><br>여기선, 천천히 괜찮아요.</div><div class="cg">#슬로우말차 #SLOWMATCHA #제주카페 #위호텔</div></div>
+  <div class="ce"><div class="cy">메뉴 — 타르트</div><div class="cx">매 30분, 오븐에서 바로.<br>기다림조차 하나의 경험이 되는 시간.</div><div class="cg">#말차타르트 #제주디저트 #슬로우말차 #위호텔말차</div></div>
+  <div class="ce"><div class="cy">웰니스 드링크</div><div class="cx">물이 전하는 에너지,<br>말차가 완성하는 한 잔.<br><br>오늘의 앰플을 선택하세요.</div><div class="cg">#화산암반수말차 #커스텀말차 #제주웰니스 #SLOWMATCHA</div></div>
+</div>
+
+<div class="ft">GLOWSEOUL | Glow Seoul Space Solution Co., Ltd. | SLOW MATCHA × WE Hotel — Content Strategy & Visual Reference Guide</div>
+</body>
+</html>
